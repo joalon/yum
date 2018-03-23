@@ -2,6 +2,6 @@
 
 - name: Determine protocol
   shell: /bin/true
-  notify: "Install {{ protocol }}"
+  notify: "Install {{ yum.protocol }}"
 
 
