@@ -2,5 +2,5 @@
 
 - name: Redhat
   import_tasks: redhat.yml
-  when: ansible_distirbution|lower == 'centos'
+  when: ansible_distribution|lower == 'centos'
 
