@@ -1,7 +1,1 @@
 ---
-
-- name: "Install http"
-  yum:
-    name: httpd
-    state: latest
-  become: true
