@@ -1,6 +1,7 @@
 ---
 
 - name: Determine protocol
+  shell: /bin/true
   notify: "Install {{ protocol }}"
 
 

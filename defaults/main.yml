@@ -1,4 +1,5 @@
 ---
 
-repository_initial_path=/mnt/repo
+repository_initial_path="/mnt/repo"
+protocol="http"
 
