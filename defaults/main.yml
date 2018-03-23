@@ -1,2 +1,4 @@
 ---
-# defaults file for yum
+
+repository_initial_path=/mnt/repo
+

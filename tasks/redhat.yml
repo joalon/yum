@@ -1,0 +1,6 @@
+---
+
+- name: Determine protocol
+  notify: "Install {{ protocol }}"
+
+

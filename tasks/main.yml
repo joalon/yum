@@ -1,2 +1,6 @@
 ---
-# tasks file for yum
+
+- name: Redhat
+  import_tasks: redhat.yml
+  when: ansible_distirbution|lower == 'centos'
+
