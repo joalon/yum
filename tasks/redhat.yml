@@ -25,10 +25,17 @@
     dest: /var/www/html/pub
     owner: apache
     group: apache
-    mode: 0644
+    mode: 0755
     remote_src: true
   with_items:
   - "{{ files_to_copy.stdout_lines }}"
+
+- name: Set correct file permissions
+  file:
+    path: /var/www/html/pub
+    state: directory
+    recurse: true
+    mode: 0644
 
 - name: Ensure httpd is restarted
   service:
