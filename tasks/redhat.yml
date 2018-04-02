@@ -13,6 +13,7 @@
   file:
     path: /var/www/html/pub
     state: directory
+  become: true
 
 - name: Get repository file (Workaround for recursive remote copying)
   command: "find /mnt/repo -type f"
@@ -40,5 +41,6 @@
     service: http
     permanent: true
     state: enabled
+  become: true
 
 
