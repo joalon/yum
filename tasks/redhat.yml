@@ -32,7 +32,7 @@
     remote_src: true
   with_items:
   - "{{ files_to_copy.stdout_lines }}"
-  become_user: apache
+  become: true
 
 - name: Set correct file permissions
   file:
@@ -40,6 +40,9 @@
     state: directory
     recurse: true
     mode: 0644
+    owner: apache
+    group: apache
+  become: true
 
 - name: Ensure httpd is restarted
   service:
