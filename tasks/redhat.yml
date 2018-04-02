@@ -9,16 +9,36 @@
     state: "present"
   become: true
 
-- name: Setup repositories for remote connections
-  # Copy from repository_local_path to httpd /var/www/html/
+- name: Create dir
+  file:
+    path: /var/www/html/pub
+    state: directory
 
-- name: Ensure httpd is started
+- name: Get repository file (Workaround for recursive remote copying)
+  command: "find /mnt/repo -type f"
+  register: files_to_copy
+
+- name: Setup repositories for remote connections
+  cp:
+    src: "{{ item }}"
+    dest: /var/www/html/pub
+    owner: apache
+    group: apache
+    mode: 0644
+    remote_src: true
+  with_items:
+  - "{{ files_to_copy.stdout_lines }}"
+
+- name: Ensure httpd is restarted
   service:
     name: httpd
     state: restarted
   become: true
 
 - name: Ensure firewall is opened
-
+  firewalld:
+    service: http
+    permanent: true
+    state: enabled
 
 

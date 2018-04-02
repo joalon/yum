@@ -1,6 +1,6 @@
 ---
 
-yum:
-  repository_initial_path: "/mnt/repo"
-  protocol: "http"
+repository_mounted_path="/mnt/repo"
+  
+protocol="http"
 
