@@ -1,6 +1,6 @@
 ---
 
-- name: Setup local repositories
+#- name: Setup local repositories
   # Set repos in /mnt/repos
 
 - name: Install httpd
