@@ -13,6 +13,9 @@
   file:
     path: /var/www/html/pub
     state: directory
+    user: apache
+    group: apache
+    mode: 0777
   become: true
 
 - name: Get repository file (Workaround for recursive remote copying)
@@ -25,10 +28,11 @@
     dest: /var/www/html/pub
     owner: apache
     group: apache
-    mode: 0777
+    mode: 0755
     remote_src: true
   with_items:
   - "{{ files_to_copy.stdout_lines }}"
+  become_user: apache
 
 - name: Set correct file permissions
   file:
