@@ -19,7 +19,7 @@
   register: files_to_copy
 
 - name: Setup repositories for remote connections
-  cp:
+  copy:
     src: "{{ item }}"
     dest: /var/www/html/pub
     owner: apache
