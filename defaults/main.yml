@@ -1,6 +1,6 @@
 ---
 
-- repository_mounted_path: "/mnt/repo"
+repository_mounted_path: "/mnt/repo"
   
-- protocol: "http"
+protocol: "http"
 
