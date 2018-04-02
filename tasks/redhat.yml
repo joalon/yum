@@ -13,7 +13,7 @@
   file:
     path: /var/www/html/pub
     state: directory
-    user: apache
+    owner: apache
     group: apache
     mode: 0777
   become: true
