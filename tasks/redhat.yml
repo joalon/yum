@@ -25,7 +25,7 @@
     dest: /var/www/html/pub
     owner: apache
     group: apache
-    mode: 0755
+    mode: 0777
     remote_src: true
   with_items:
   - "{{ files_to_copy.stdout_lines }}"
