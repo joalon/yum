@@ -2,7 +2,7 @@
 
 - name: Download Epel GPG key
   get_url:
-    url: https://dl.fedoraproject.org/pub/RPM-GPG-KEY-EPEL-7
+    url: https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
     dest: /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
     mode: 0444
 
