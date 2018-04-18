@@ -12,10 +12,11 @@
     dest: /var/www/html/yum/epel/7/x86_64
     mode: 0755
 
-- name: Create Epel config in /etc/yum.repos.d
-  template:
-    src: custom.repo.j2
-    dest: /etc/yum.repos.d/epel.repo
-    owner: root
-    group: root
-    mode: 0644
+# Client conf
+#- name: Create Epel config in /etc/yum.repos.d
+#  template:
+#    src: custom.repo.j2
+#    dest: /etc/yum.repos.d/epel.repo
+#    owner: root
+#    group: root
+#    mode: 0644
