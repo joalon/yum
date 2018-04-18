@@ -1,0 +1,21 @@
+---
+
+- name: Download Epel GPG key
+  get_url:
+    url: https://dl.fedoraproject.org/pub/RPM-GPG-KEY-EPEL-7
+    dest: /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+    mode: 0444
+
+- name: Download Epel Repository
+  get_url:
+    url: https://dl.fedoraproject.org/pub/epel/7/x86_64
+    dest: /var/www/html/yum/epel/7/x86_64
+    mode: 0755
+
+- name: Create Epel config in /etc/yum.repos.d
+  template:
+    src: custom.repo.j2
+    dest: /etc/yum.repos.d/epel.repo
+    owner: root
+    group: root
+    mode: 0644

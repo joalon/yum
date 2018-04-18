@@ -1,6 +1,10 @@
 ---
 
-- name: Redhat
+- name: Check linux distribution
   import_tasks: redhat.yml
   when: ansible_distribution|lower == 'centos'
+
+- name: Download EPEL
+  import_tasks: download_epel.yml
+  when: download_epel|bool is true
 

@@ -4,3 +4,14 @@ repository_mounted_path: "/mnt/repo"
   
 protocol: "http"
 
+download_epel: true
+
+# Add to client!
+#epel_repositories:
+#- epel:
+#    shortname: epel
+#    name: Extra Packages for Enterprise Linux 7 - $basearch
+#    baseurl: 
+#    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+#    gpgcheck: true
+

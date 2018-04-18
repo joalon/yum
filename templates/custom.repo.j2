@@ -1,0 +1,12 @@
+{% for repo in epel_repositories %}
+[{{ repo.shortname }}]
+name={{repo.name}}
+baseurl={{ repo.url }}
+enabled=1
+{% if repo.gpgcheck == true %}
+gpgcheck=1
+gpgkey={{ repo.gpgkey }}
+{% else %}
+gpgcheck=0
+{% endif %}
+{% endfor %}
