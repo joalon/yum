@@ -1,5 +1,9 @@
 ---
 
+- name: Say hello
+  debug:
+    msg: "Hello?"
+
 - name: Download Epel GPG key
   get_url:
     url: https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
