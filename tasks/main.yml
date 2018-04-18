@@ -6,5 +6,5 @@
 
 - name: Download EPEL
   import_tasks: download_epel.yml
-  when: download_epel|bool is true
+  when: download_epel|bool == true
 
