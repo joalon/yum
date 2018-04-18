@@ -14,12 +14,12 @@
 
 - name: Ensure firewall is opened
   firewalld:
-    service: {{ item }}
+    service: "{{ item }}"
     permanent: true
     state: enabled
   become: true
   with_items:
-  - "http"
-  - "https"
+  - http
+  - https
 
 
