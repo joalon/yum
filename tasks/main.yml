@@ -1,10 +1,14 @@
 ---
 
-- name: Check linux distribution
+- name: Import Installation tasks for CentOS
   import_tasks: redhat.yml
   when: ansible_distribution|lower == 'centos'
 
-- name: Download EPEL
-  import_tasks: download_epel.yml
-  when: download_epel == true
+- name: Import Download EPEL tasks
+  import_tasks: "download-epel.yml"
+  when: download_epel
 
+# Create a more generalized download repo task file?
+- name: Import Download EL tasks
+  import_tasks: "download-el.yml"
+  when: download_el

@@ -1,10 +1,13 @@
 ---
 
-- name: Install httpd
+- name: Install packages
   yum:
-    name: "httpd"
+    name: "{{ item }}"
     state: "present"
   become: true
+  with_items:
+  - httpd
+  - yum-utils
 
 - name: Ensure httpd is restarted
   service:

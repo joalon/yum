@@ -1,10 +1,6 @@
 ---
 
-- name: Say hello
-  debug:
-    msg: "Hello?"
-
-- name: Download Epel GPG key
+- name: Download EPEL GPG key
   get_url:
     url: https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
     dest: /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
@@ -13,7 +9,12 @@
     mode: 0444
   become: yes
 
-- name: Download Epel Repository
+- name: Ensure EL GPG key is added to rpm database
+  rpm_key:
+    key: /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+    state: present
+
+- name: Download EPEL Repository
   get_url:
     url: https://dl.fedoraproject.org/pub/epel/7/x86_64
     dest: /var/www/html/yum/epel/7/x86_64
@@ -21,12 +22,3 @@
     group: root
     mode: 0755
   become: yes
-
-# Client conf
-#- name: Create Epel config in /etc/yum.repos.d
-#  template:
-#    src: custom.repo.j2
-#    dest: /etc/yum.repos.d/epel.repo
-#    owner: root
-#    group: root
-#    mode: 0644

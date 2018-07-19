@@ -1,0 +1,19 @@
+---
+
+- name: Download EL GPG key
+  get_url:
+    url: https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+    dest: /etc/pki/rpm-gpg/RPM-GPG-KEY-elrepo.org
+    owner: root
+    group: root
+    mode: 0444
+  become: yes
+
+- name: Ensure EL GPG key is added to rpm database
+  rpm_key:
+    key: /etc/pki/rpm-gpg/RPM-GPG-KEY-elrepo.org
+    state: present
+
+- name: Download EL Repository
+  command: reposync
+

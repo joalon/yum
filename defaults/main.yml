@@ -1,10 +1,20 @@
 ---
 
-repository_mounted_path: "/mnt/repo"
-  
-protocol: "http"
-
+# Implemented
 download_epel: true
+download_el: false
+
+
+# To be implemented:
+
+# Distributions other than centos
+
+# Add a mounted repository which is copied into the permanent hosted platfrom
+#repository_mounted_path: "/mnt/repo"
+
+# Change which application to host the repositories (ftp, http, https?)
+#protocol: "http"
+
 
 # Add to client!
 #epel_repositories:
